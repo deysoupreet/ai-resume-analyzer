@@ -10,7 +10,6 @@ export const meta = () => ([
     { name: 'description', content: 'Detailed overview of your resume' },
 ])
 
-
 const Resume = () => {
     const { auth, isLoading, fs, kv } = usePuterStore();
     const { id } = useParams();
@@ -76,9 +75,9 @@ const Resume = () => {
                     <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
                     {feedback ? (
                         <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
-                            {/* <Summary feedback={feedback} />
-                            <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
-                            <Details feedback={feedback} /> */}
+                            <Summary feedback={feedback} />
+                            <ATS score={feedback.ATS?.score || 0} suggestions={feedback.ATS?.tips || []} />
+                            <Details feedback={feedback} />
                         </div>
                     ) : (
                         <img src="/images/resume-scan-2.gif" className="w-full" />
@@ -88,5 +87,4 @@ const Resume = () => {
         </main>
     )
 }
-
 export default Resume
